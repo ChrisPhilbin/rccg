@@ -54,7 +54,7 @@ const Generator = () => {
                                     <Grid container spacing={1}>
                                         <Grid item xs={12}>
                                             <Typography>
-                                                Use the prompts below to provide insight into Michael's behaviors
+                                                Provide insight into {student}'s behaviors
                                             </Typography>
                                         </Grid>
 
