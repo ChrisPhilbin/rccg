@@ -54,6 +54,9 @@ const Footer = (props) => {
     let [newStudent, setNewStudent] = useState('')
 
     const handleStudentSubmit = () => {
+        if (props.students.indexOf(newStudent) != -1) {
+            return alert("Student name already exists!")
+        }
         props.setStudents([...props.students, newStudent])
         setDialogOpen(false)
     }
