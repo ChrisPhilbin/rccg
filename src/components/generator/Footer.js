@@ -58,6 +58,10 @@ const Footer = (props) => {
         setDialogOpen(false)
     }
 
+    const generateComments = () => {
+        console.log("Generating comments...")
+    }
+
     return(
         <>
             <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)} aria-labelledby="form-dialog-title">
@@ -98,7 +102,7 @@ const Footer = (props) => {
                     </Fab>
                     <div className={classes.grow} />
                     <IconButton edge="end" color="inherit">
-                        <Button style={{color: 'white', backgroundColor: 'green'}}>Generate!</Button>
+                        <Button onClick={() => generateComments()} style={{color: 'white', backgroundColor: 'green'}}>Generate!</Button>
                     </IconButton>
                 </Toolbar>
             </AppBar>
