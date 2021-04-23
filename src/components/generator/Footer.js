@@ -14,6 +14,7 @@ import DialogContent from '@material-ui/core/DialogContent'
 import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import TextField from '@material-ui/core/TextField'
+import CreateIcon from '@material-ui/icons/Create'
 
 const useStyles = makeStyles((theme) => ({
     text: {
@@ -97,7 +98,7 @@ const Footer = (props) => {
                     </Fab>
                     <div className={classes.grow} />
                     <IconButton edge="end" color="inherit">
-                        <MoreIcon />
+                        <Button style={{color: 'white', backgroundColor: 'green'}}>Generate!</Button>
                     </IconButton>
                 </Toolbar>
             </AppBar>
