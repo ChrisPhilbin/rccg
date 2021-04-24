@@ -34,7 +34,7 @@ const Generator = () => {
     const classes = useStyles()
 
     let [students, setStudents] = useState(['Sam', 'Mike', 'Chris', 'Mary'])
-
+    debugger;
         return(
             <>
                 <Container maxWidth="md">
