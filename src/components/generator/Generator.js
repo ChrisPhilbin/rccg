@@ -27,6 +27,14 @@ const useStyles = makeStyles((theme) => ({
     },
     ratingCategory: {
         padding: '10px 0',
+    },
+    ratingHeader: {
+        paddingTop: '20px',
+        paddingBottom: '20px'
+    },
+    removeStudentButton: {
+        float: 'right',
+        paddingRight: '20px'
     }
   }))
 
@@ -35,14 +43,29 @@ const Generator = () => {
     const classes = useStyles()
 
     const removeStudent = (student) => {
-        const index = students.indexOf(student)
-        if (index > -1) {
-            students.splice(index, 1)
-            setStudents([...students])
+        if (window.confirm("Are you sure?")) {
+            const index = students.indexOf(student)
+            if (index > -1) {
+                students.splice(index, 1)
+                setStudents([...students])
+            }
         }
     }
 
-    // let [students, setStudents] = useState(['Sam', 'Mike', 'Chris', 'Mary'])
+    // students = [
+    //     {
+    //         student_name, studentname,
+    //         gender: m_f_other,
+    //         ratings: {
+    //             all_academic_areas: score,
+    //             homework_completion: score,
+    //             math: score,
+    //             reading: score
+    //         }
+        
+    //     }
+    // ]
+
     let [students, setStudents] = useState([])
         if (students.length !== 0) {
             return(
@@ -63,10 +86,10 @@ const Generator = () => {
                                     <AccordionDetails>
                                         <Grid container spacing={1}>
                                             <Grid item xs={12}>
-                                                <Typography>
-                                                    Provide insight into {student}'s behaviors
-                                                </Typography>
-                                                <span><Button onClick={() => removeStudent(student)}>Remove</Button></span>
+                                                <div className={classes.ratingHeader}>
+                                                        Provide insight into {student}'s
+                                                    <span className={classes.removeStudentButton}><Button variant="contained" color="secondary" onClick={() => removeStudent(student)}>Remove</Button></span>
+                                                </div>
                                             </Grid>
 
                                             <Grid item xs={12}>
