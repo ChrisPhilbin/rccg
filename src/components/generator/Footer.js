@@ -14,6 +14,7 @@ import DialogContent from '@material-ui/core/DialogContent'
 import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import TextField from '@material-ui/core/TextField'
+import CreateIcon from '@material-ui/icons/Create'
 
 const useStyles = makeStyles((theme) => ({
     text: {
@@ -53,8 +54,15 @@ const Footer = (props) => {
     let [newStudent, setNewStudent] = useState('')
 
     const handleStudentSubmit = () => {
+        if (props.students.indexOf(newStudent) != -1) {
+            return alert("Student name already exists!")
+        }
         props.setStudents([...props.students, newStudent])
         setDialogOpen(false)
+    }
+
+    const generateComments = () => {
+        console.log("Generating comments...")
     }
 
     return(
@@ -97,7 +105,7 @@ const Footer = (props) => {
                     </Fab>
                     <div className={classes.grow} />
                     <IconButton edge="end" color="inherit">
-                        <MoreIcon />
+                        <Button onClick={() => generateComments()} style={{color: 'white', backgroundColor: 'green'}}>Generate!</Button>
                     </IconButton>
                 </Toolbar>
             </AppBar>
