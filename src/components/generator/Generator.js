@@ -42,6 +42,10 @@ const Generator = () => {
         }
     }
 
+    const handleToggle = (e) => {
+        
+    }
+
     // let [students, setStudents] = useState(['Sam', 'Mike', 'Chris', 'Mary'])
     let [students, setStudents] = useState([])
         if (students.length !== 0) {
@@ -71,7 +75,7 @@ const Generator = () => {
 
                                             <Grid item xs={12}>
                                                 <div className={classes.ratingCategory}>
-                                                    All academic areas <span className={classes.icons}><BlockIcon onClick={(e) => console.log(e.target)} /> <ThumbUpIcon /> <ThumbDownIcon /></span>
+                                                    All academic areas <span className={classes.icons}><BlockIcon className="none" onClick={(e) => handleToggle(e)} /> <ThumbUpIcon /> <ThumbDownIcon /></span>
                                                 </div>
 
                                                 <div className={classes.ratingCategory}>
