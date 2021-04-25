@@ -98,7 +98,7 @@ const Generator = () => {
                                             <Grid item xs={12}>
                                                 <Typography variant="h5" gutterBottom>Academics</Typography>
                                                 <div className={classes.ratingCategory}>
-                                                    All academic areas <span className={classes.icons}><BlockIcon onClick={() => setStudents() }/> <ThumbUpIcon /> <ThumbDownIcon /></span>
+                                                    All academic areas <span className={classes.icons}><BlockIcon onClick={() => setStudents([...students,{...student, ratings: {homework: 0}}]) }/> <ThumbUpIcon /> <ThumbDownIcon /></span>
                                                 </div>
 
                                                 <div className={classes.ratingCategory}>
