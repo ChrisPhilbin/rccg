@@ -67,6 +67,9 @@ const Generator = () => {
     // ]
 
     let [students, setStudents] = useState([])
+
+    console.log(students, "students array")
+
         if (students.length !== 0) {
             return(
                 <>
@@ -81,20 +84,21 @@ const Generator = () => {
                                         id="panel1a-header"
                                     >
                                         <CheckCircleOutlineIcon style={{fill: 'green', paddingRight: 10}}/>
-                                        <Typography className={classes.heading}>{student}</Typography>
+                                        <Typography className={classes.heading}>{student.firstName}</Typography>
                                     </AccordionSummary>
                                     <AccordionDetails>
                                         <Grid container spacing={1}>
                                             <Grid item xs={12}>
                                                 <div className={classes.ratingHeader}>
-                                                        Provide insight into {student}'s
+                                                        Provide insight into {student.firstName}'s performance
                                                     <span className={classes.removeStudentButton}><Button variant="contained" color="secondary" onClick={() => removeStudent(student)}>Remove</Button></span>
                                                 </div>
                                             </Grid>
 
                                             <Grid item xs={12}>
+                                                <Typography variant="h5" gutterBottom>Academics</Typography>
                                                 <div className={classes.ratingCategory}>
-                                                    All academic areas <span className={classes.icons}><BlockIcon onClick={(e) => console.log(e.target)} /> <ThumbUpIcon /> <ThumbDownIcon /></span>
+                                                    All academic areas <span className={classes.icons}><BlockIcon onClick={() => setStudents() }/> <ThumbUpIcon /> <ThumbDownIcon /></span>
                                                 </div>
 
                                                 <div className={classes.ratingCategory}>

@@ -51,13 +51,15 @@ const Footer = (props) => {
     const classes = useStyles()
 
     let [dialogOpen, setDialogOpen] = useState(false)
-    let [newStudent, setNewStudent] = useState('')
+    let [newStudent, setNewStudent] = useState({})
 
     const handleStudentSubmit = () => {
         if (props.students.indexOf(newStudent) != -1) {
             return alert("Student name already exists!")
         }
-        props.setStudents([...props.students, newStudent])
+        // props.setStudents([...props.students, newStudent])
+        console.log(newStudent, "new student object")
+        props.setStudents(props.students.concat(newStudent))
         setDialogOpen(false)
     }
 
@@ -80,7 +82,7 @@ const Footer = (props) => {
                         margin="dense"
                         id="name"
                         label="Student's name"
-                        onChange={(e) => setNewStudent(e.target.value)}
+                        onChange={(e) => setNewStudent({'firstName': e.target.value})}
                         fullWidth
                     />
                 </DialogContent>
