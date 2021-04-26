@@ -75,7 +75,7 @@ const Footer = (props) => {
 
                 <DialogContent>
                     <DialogContentText>
-                        Add student's name below
+                        Add student's info below
                     </DialogContentText>
                     <TextField
                         autoFocus

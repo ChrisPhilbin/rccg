@@ -54,8 +54,6 @@ const Generator = () => {
 
     let [students, setStudents] = useState([])
 
-    console.log(students, "students array")
-
     const updateStudentAttributes = (name, attribute, rating) => {
         let newArr = students.map((student) => {
             if (student.firstName === name) {
