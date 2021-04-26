@@ -27,6 +27,14 @@ const useStyles = makeStyles((theme) => ({
     },
     ratingCategory: {
         padding: '10px 0',
+    },
+    ratingHeader: {
+        paddingTop: '20px',
+        paddingBottom: '20px'
+    },
+    removeStudentButton: {
+        float: 'right',
+        paddingRight: '20px'
     }
   }))
 
@@ -35,19 +43,33 @@ const Generator = () => {
     const classes = useStyles()
 
     const removeStudent = (student) => {
-        const index = students.indexOf(student)
-        if (index > -1) {
-            students.splice(index, 1)
-            setStudents([...students])
+        if (window.confirm("Are you sure?")) {
+            const index = students.indexOf(student)
+            if (index > -1) {
+                students.splice(index, 1)
+                setStudents([...students])
+            }
         }
     }
 
-    const handleToggle = (e) => {
+    // students = [
+    //     {
+    //         student_name, studentname,
+    //         gender: m_f_other,
+    //         ratings: {
+    //             all_academic_areas: score,
+    //             homework_completion: score,
+    //             math: score,
+    //             reading: score
+    //         }
         
-    }
+    //     }
+    // ]
 
-    // let [students, setStudents] = useState(['Sam', 'Mike', 'Chris', 'Mary'])
     let [students, setStudents] = useState([])
+
+    console.log(students, "students array")
+
         if (students.length !== 0) {
             return(
                 <>
@@ -62,20 +84,21 @@ const Generator = () => {
                                         id="panel1a-header"
                                     >
                                         <CheckCircleOutlineIcon style={{fill: 'green', paddingRight: 10}}/>
-                                        <Typography className={classes.heading}>{student}</Typography>
+                                        <Typography className={classes.heading}>{student.firstName}</Typography>
                                     </AccordionSummary>
                                     <AccordionDetails>
                                         <Grid container spacing={1}>
                                             <Grid item xs={12}>
-                                                <Typography>
-                                                    Provide insight into {student}'s behaviors
-                                                </Typography>
-                                                <span><Button onClick={() => removeStudent(student)}>Remove</Button></span>
+                                                <div className={classes.ratingHeader}>
+                                                        Provide insight into {student.firstName}'s performance
+                                                    <span className={classes.removeStudentButton}><Button variant="contained" color="secondary" onClick={() => removeStudent(student)}>Remove</Button></span>
+                                                </div>
                                             </Grid>
 
                                             <Grid item xs={12}>
+                                                <Typography variant="h5" gutterBottom>Academics</Typography>
                                                 <div className={classes.ratingCategory}>
-                                                    All academic areas <span className={classes.icons}><BlockIcon className="none" onClick={(e) => handleToggle(e)} /> <ThumbUpIcon /> <ThumbDownIcon /></span>
+                                                    All academic areas <span className={classes.icons}><BlockIcon onClick={() => setStudents([...students,{...student, ratings: {homework: 0}}]) }/> <ThumbUpIcon /> <ThumbDownIcon /></span>
                                                 </div>
 
                                                 <div className={classes.ratingCategory}>
