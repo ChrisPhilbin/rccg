@@ -96,7 +96,7 @@ const Generator = () => {
                                             <Grid item xs={12}>
                                                 <Typography variant="h5" gutterBottom>Academics</Typography>
                                                 <div className={classes.ratingCategory}>
-                                                    All academic areas <span className={classes.icons}><BlockIcon onClick={() => updateStudentAttributes(student.firstName, "homework", 0)}/> <ThumbUpIcon /> <ThumbDownIcon /></span>
+                                                    All academic areas <span className={classes.icons}><BlockIcon onClick={() => updateStudentAttributes(student.firstName, "homework", 0)}/> <ThumbDownIcon onClick={() => updateStudentAttributes(student.firstName, "homework", 1)}/> <ThumbUpIcon onClick={() => updateStudentAttributes(student.firstName, "homework", 2)}/></span>
                                                 </div>
 
                                                 <div className={classes.ratingCategory}>
