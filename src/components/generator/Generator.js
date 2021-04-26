@@ -52,23 +52,21 @@ const Generator = () => {
         }
     }
 
-    // students = [
-    //     {
-    //         student_name, studentname,
-    //         gender: m_f_other,
-    //         ratings: {
-    //             all_academic_areas: score,
-    //             homework_completion: score,
-    //             math: score,
-    //             reading: score
-    //         }
-        
-    //     }
-    // ]
-
     let [students, setStudents] = useState([])
 
     console.log(students, "students array")
+
+    const updateStudentAttributes = (name, attribute, rating) => {
+        let newArr = students.map((student) => {
+            if (student.firstName === name) {
+                return { ...student, ratings: {[attribute] : rating} }
+            } else {
+                return student
+            }
+        })
+        console.log(newArr, "new array")
+        setStudents(newArr)
+      }
 
         if (students.length !== 0) {
             return(
@@ -98,7 +96,7 @@ const Generator = () => {
                                             <Grid item xs={12}>
                                                 <Typography variant="h5" gutterBottom>Academics</Typography>
                                                 <div className={classes.ratingCategory}>
-                                                    All academic areas <span className={classes.icons}><BlockIcon onClick={() => setStudents([...students,{...student, ratings: {homework: 0}}]) }/> <ThumbUpIcon /> <ThumbDownIcon /></span>
+                                                    All academic areas <span className={classes.icons}><BlockIcon onClick={() => updateStudentAttributes(student.firstName, "homework", 0)}/> <ThumbUpIcon /> <ThumbDownIcon /></span>
                                                 </div>
 
                                                 <div className={classes.ratingCategory}>
